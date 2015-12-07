@@ -1,0 +1,37 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'io.spring.gradle:dependency-management-plugin:0.5.3.RELEASE'
+    }
+}
+
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+dependencyManagement {
+    imports {
+        mavenBom 'io.spring.platform:platform-bom:2.0.0.RELEASE'
+    }
+}
+
+dependencies {
+    compile 'org.springframework:spring-core'
+    compile 'com.h2database:h2'
+    compile 'com.zaxxer:HikariCP'
+    compile 'org.hibernate:hibernate-entitymanager'
+    compile 'org.springframework.data:spring-data-jpa'
+    compile 'joda-time:joda-time'
+    compile 'org.jadira.usertype:usertype.extended:3.2.0.GA'
+    compile 'org.slf4j:jcl-over-slf4j'
+    compile 'com.google.guava:guava'
+    
+    runtime 'ch.qos.logback:logback-classic'
+    
+    testCompile 'junit:junit'
+}
