@@ -1,11 +1,19 @@
 package com.studio.harbour.repository;
 
-import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
+import static org.junit.Assert.assertEquals;
 
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import com.studio.harbour.configuration.PersistenceContext;
 import com.studio.harbour.entity.Todo;
 
-public class TodoRepositoryTest {
+@RunWith(SpringJUnit4ClassRunner. class)
+@ContextConfiguration(classes = {PersistenceContext.class})
+public class TodoRepositoryTest {	
 	@Autowired
 	private TodoRepository repository;
 	
@@ -14,6 +22,7 @@ public class TodoRepositoryTest {
 		Todo entity = new Todo();
 		entity.setTitle("robin");
 		entity.setDescription("description");
-		repository.save(entity);
+		Todo ent = repository.save(entity);
+		assertEquals("robin", ent.getTitle());
     }
 }

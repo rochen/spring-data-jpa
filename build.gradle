@@ -26,6 +26,7 @@ dependencies {
     compile 'com.zaxxer:HikariCP'
     compile 'org.hibernate:hibernate-entitymanager'
     compile 'org.springframework.data:spring-data-jpa'
+    compile 'org.springframework:spring-test'
     compile 'joda-time:joda-time'
     compile 'org.jadira.usertype:usertype.extended:3.2.0.GA'
     compile 'org.slf4j:jcl-over-slf4j'
